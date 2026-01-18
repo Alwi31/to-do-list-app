@@ -1,3 +1,6 @@
+/* Import Google Fonts - Bold & Playful */
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -12,9 +15,6 @@
  * Purple-Pink-Cyan gradient vibes
  */
 
-/* Import Google Fonts - Bold & Playful */
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
-
 @layer base {
   :root {
     /* 
@@ -22,7 +22,7 @@
      * Vibrant purples, hot pinks, electric cyan
      * Bold, energetic, inspiring!
      */
-    
+
     /* Background - Soft lavender dengan hint of pink */
     --background: 270 50% 98%;
     --foreground: 260 30% 15%;
@@ -66,17 +66,38 @@
     --radius: 1rem;
 
     /* Gradient Variables untuk Gen Z vibes */
-    --gradient-primary: linear-gradient(135deg, hsl(265 85% 60%), hsl(320 85% 55%));
-    --gradient-accent: linear-gradient(135deg, hsl(320 85% 55%), hsl(35 95% 60%));
-    --gradient-background: linear-gradient(180deg, hsl(270 50% 98%) 0%, hsl(280 60% 96%) 50%, hsl(200 60% 96%) 100%);
-    --gradient-card: linear-gradient(135deg, hsl(0 0% 100% / 0.9), hsl(270 50% 99% / 0.8));
-    
+    --gradient-primary: linear-gradient(
+      135deg,
+      hsl(265 85% 60%),
+      hsl(320 85% 55%)
+    );
+    --gradient-accent: linear-gradient(
+      135deg,
+      hsl(320 85% 55%),
+      hsl(35 95% 60%)
+    );
+    --gradient-background: linear-gradient(
+      180deg,
+      hsl(270 50% 98%) 0%,
+      hsl(280 60% 96%) 50%,
+      hsl(200 60% 96%) 100%
+    );
+    --gradient-card: linear-gradient(
+      135deg,
+      hsl(0 0% 100% / 0.9),
+      hsl(270 50% 99% / 0.8)
+    );
+
     /* Shadows - Colorful shadows untuk depth */
     --shadow-sm: 0 2px 8px 0 hsl(265 85% 60% / 0.08);
-    --shadow-md: 0 8px 24px -4px hsl(265 85% 60% / 0.15), 0 4px 8px -2px hsl(320 85% 55% / 0.1);
-    --shadow-lg: 0 20px 40px -8px hsl(265 85% 60% / 0.2), 0 8px 16px -4px hsl(320 85% 55% / 0.15);
+    --shadow-md:
+      0 8px 24px -4px hsl(265 85% 60% / 0.15),
+      0 4px 8px -2px hsl(320 85% 55% / 0.1);
+    --shadow-lg:
+      0 20px 40px -8px hsl(265 85% 60% / 0.2),
+      0 8px 16px -4px hsl(320 85% 55% / 0.15);
     --shadow-glow: 0 0 30px hsl(265 85% 60% / 0.3);
-    
+
     /* Sidebar */
     --sidebar-background: 270 50% 98%;
     --sidebar-foreground: 260 30% 15%;
@@ -120,10 +141,19 @@
     --border: 260 25% 20%;
     --input: 260 25% 18%;
     --ring: 270 90% 65%;
-    
-    --gradient-primary: linear-gradient(135deg, hsl(270 90% 65%), hsl(320 90% 60%));
-    --gradient-background: linear-gradient(180deg, hsl(260 30% 8%) 0%, hsl(265 35% 10%) 50%, hsl(280 30% 8%) 100%);
-    
+
+    --gradient-primary: linear-gradient(
+      135deg,
+      hsl(270 90% 65%),
+      hsl(320 90% 60%)
+    );
+    --gradient-background: linear-gradient(
+      180deg,
+      hsl(260 30% 8%) 0%,
+      hsl(265 35% 10%) 50%,
+      hsl(280 30% 8%) 100%
+    );
+
     --sidebar-background: 260 30% 8%;
     --sidebar-foreground: 270 30% 95%;
     --sidebar-primary: 270 90% 65%;
@@ -142,7 +172,7 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+    font-family: "Space Grotesk", "Inter", system-ui, sans-serif;
     background: var(--gradient-background);
     min-height: 100vh;
   }
@@ -160,7 +190,7 @@
     @apply bg-card/80 backdrop-blur-xl border border-border/50;
     box-shadow: var(--shadow-md);
   }
-  
+
   /* Gradient Text Effect */
   .gradient-text {
     background: var(--gradient-primary);
@@ -168,25 +198,25 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-  
+
   /* Gradient Button */
   .gradient-button {
     background: var(--gradient-primary);
     @apply text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300;
   }
-  
+
   .gradient-button:hover {
     transform: translateY(-2px);
     box-shadow: var(--shadow-glow);
   }
-  
+
   /* Glowing Border Effect */
   .glow-border {
     position: relative;
   }
-  
+
   .glow-border::before {
-    content: '';
+    content: "";
     position: absolute;
     inset: -2px;
     border-radius: inherit;
@@ -195,11 +225,11 @@
     opacity: 0;
     transition: opacity 0.3s ease;
   }
-  
+
   .glow-border:hover::before {
     opacity: 1;
   }
-  
+
   /* Emoji Badge */
   .emoji-badge {
     @apply inline-flex items-center gap-1 px-3 py-1 rounded-full text-sm font-medium;
@@ -222,7 +252,8 @@
 
   /* Slide up dengan bounce */
   .animate-slide-up {
-    animation: slideUpBounce 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+    animation: slideUpBounce 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55)
+      forwards;
   }
 
   /* Wiggle animation untuk fun feedback */
@@ -278,7 +309,8 @@
 }
 
 @keyframes wiggle {
-  0%, 100% {
+  0%,
+  100% {
     transform: rotate(0deg);
   }
   25% {
@@ -290,7 +322,8 @@
 }
 
 @keyframes pulseGlow {
-  0%, 100% {
+  0%,
+  100% {
     box-shadow: 0 0 20px hsl(265 85% 60% / 0.3);
   }
   50% {
@@ -299,7 +332,8 @@
 }
 
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
   50% {
@@ -337,7 +371,7 @@
 }
 
 .checkbox-completed::after {
-  content: '✨';
+  content: "✨";
   @apply absolute -top-1 -right-1 text-xs;
   animation: popIn 0.3s ease-out;
 }

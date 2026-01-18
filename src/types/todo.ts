@@ -2,9 +2,9 @@
  * ============================================
  * TYPE DEFINITIONS - To-Do App
  * ============================================
- * 
+ *
  * Best Practice: Definisikan types di file terpisah
- * 
+ *
  * Keuntungan:
  * 1. Single source of truth untuk struktur data
  * 2. Mudah di-import di berbagai komponen
@@ -14,7 +14,7 @@
 
 /**
  * Interface untuk satu item Todo
- * 
+ *
  * Interface vs Type:
  * - Interface lebih cocok untuk object shapes
  * - Dapat di-extend dengan mudah
@@ -23,29 +23,29 @@
 export interface Todo {
   /** Unique identifier - menggunakan timestamp untuk simplicity */
   id: string;
-  
+
   /** Teks tugas yang harus dilakukan */
   text: string;
-  
+
   /** Status apakah tugas sudah selesai */
   completed: boolean;
-  
+
   /** Timestamp saat todo dibuat (ISO string) */
   createdAt: string;
-  
+
   /** Timestamp saat todo terakhir diupdate (ISO string) */
   updatedAt: string;
 }
 
 /**
  * Type untuk filter yang tersedia
- * 
+ *
  * Menggunakan Union Type:
  * - Membatasi nilai yang valid
  * - TypeScript akan error jika nilai tidak valid
  * - Memudahkan autocomplete di IDE
  */
-export type FilterType = 'all' | 'active' | 'completed';
+export type FilterType = "all" | "active" | "completed";
 
 /**
  * Interface untuk state context
@@ -62,10 +62,35 @@ export interface TodoState {
  * Discriminated Union untuk type-safe actions
  */
 export type TodoAction =
-  | { type: 'ADD_TODO'; payload: string }
-  | { type: 'TOGGLE_TODO'; payload: string }
-  | { type: 'DELETE_TODO'; payload: string }
-  | { type: 'EDIT_TODO'; payload: { id: string; text: string } }
-  | { type: 'SET_FILTER'; payload: FilterType }
-  | { type: 'SET_SEARCH'; payload: string }
-  | { type: 'LOAD_TODOS'; payload: Todo[] };
+  | { type: "ADD_TODO"; payload: string }
+  | { type: "TOGGLE_TODO"; payload: string }
+  | { type: "DELETE_TODO"; payload: string }
+  | { type: "EDIT_TODO"; payload: { id: string; text: string } }
+  | { type: "SET_FILTER"; payload: FilterType }
+  | { type: "SET_SEARCH"; payload: string }
+  | { type: "LOAD_TODOS"; payload: Todo[] };
+/**
+ * Interface untuk satu item Note (Catatan)
+ *
+ * Note adalah catatan harian tentang apa yang terjadi hari ini
+ * Bisa menjadi todo otomatis untuk besok
+ */
+export interface Note {
+  /** Unique identifier - menggunakan timestamp untuk simplicity */
+  id: string;
+
+  /** Konten catatan */
+  content: string;
+
+  /** Tanggal catatan dibuat (YYYY-MM-DD) */
+  date: string;
+
+  /** Timestamp saat note dibuat (ISO string) */
+  createdAt: string;
+
+  /** Timestamp saat note terakhir diupdate (ISO string) */
+  updatedAt: string;
+
+  /** Optional: Apakah note dijadikan todo */
+  convertedToTodo?: boolean;
+}
