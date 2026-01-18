@@ -659,13 +659,4 @@ Dibuat untuk Gen Z learners yang ingin belajar React dengan cara yang fun dan mo
 
 ---
 
-## 🔗 Quick Links
-
-- 📖 [Dokumentasi Lengkap](#)
-- 🐛 [Report Issues](#)
-- 💡 [Suggest Features](#)
-- 🌟 [Star Repository](#)
-
----
-
 **Happy Coding! ⚡**
